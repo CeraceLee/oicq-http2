@@ -15,8 +15,7 @@ let bot: oicq.Client;
 let wss: WebSocketServer;
 
 function exitsFolder(path: string) {
-  stats = fs.statSync(path);
-  if (!stats) {
+  if (!fs.existsSync(path)) {
     fs.mkdirSync(path, true);
   }
 }
