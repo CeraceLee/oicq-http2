@@ -14,8 +14,16 @@ import * as extra from "./extra";
 let bot: oicq.Client;
 let wss: WebSocketServer;
 
+function exitsFolder(path: string) {
+  stats = fs.statSync(path);
+  if (!stats) {
+    fs.mkdirSync(path, true);
+  }
+}
+
 function startup(account: number, configs: { [k: string]: Config }) {
   const passDir = path.join(configDir, account.toString());
+  exitsFolder(passDir);
   const passFile = path.join(passDir, "password");
   const generalConfig = configs["general"];
   const accountConfig = configs[account.toString()];
