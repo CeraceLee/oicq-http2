@@ -2,6 +2,7 @@
 try {
   const { main } = require("./cli");
   main();
-} catch {
+} catch (e) {
+  console.log(e)
   console.log(`Please run "yarn install" first!`);
 }
