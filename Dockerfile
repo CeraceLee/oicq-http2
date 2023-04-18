@@ -8,6 +8,7 @@ WORKDIR /usr/src/app
 # PS：因为 oicq2 预先构建需要依赖 src 文件夹
 # 所以干脆把整个文件夹拷贝进去，反正构建也不慢
 COPY . .
+COPY ./config.json /root/.oicq/config.json
 # 安装依赖
 RUN yarn install
 
